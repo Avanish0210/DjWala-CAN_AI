@@ -1,0 +1,15 @@
+spring:
+  config:
+    import: optional:file:../.env[.properties]
+
+server:
+  port: 8080
+
+live-dj:
+  api-key: ${GOOGLE_API_KEY}
+  model: ${LIVE_MODEL:gemini-3.8-live}
+  voice: ${LIVE_VOICE:Aoede}
+  endpoint: ${GEMINI_LIVE_ENDPOINT:wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent}
+  allowed-origins:
+    - http://localhost:8080
+    - http://127.0.0.1:8080
